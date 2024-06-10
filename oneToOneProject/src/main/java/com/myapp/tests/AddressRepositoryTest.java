@@ -13,6 +13,7 @@ public class AddressRepositoryTest implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+            /*
             Address address1 = new Address();
             address1.setCity("San Francisco");
             address1.setState("CA");
@@ -48,5 +49,6 @@ public class AddressRepositoryTest implements CommandLineRunner {
             // Delete address
             addressRepository.deleteById(1);
             System.out.println("Delete address with id=1 : "+addressRepository.findById(1));
+             */
     }
 }
