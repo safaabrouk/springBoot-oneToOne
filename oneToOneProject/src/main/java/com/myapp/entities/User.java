@@ -19,7 +19,7 @@ public class User {
     private String email;
     private String password;
 
-    @OneToOne(/*cascade = CascadeType.ALL*/)
+    @OneToOne(cascade = CascadeType.ALL)
     // In oneToOne fetch for default is EAGER
     private Address address;
 
