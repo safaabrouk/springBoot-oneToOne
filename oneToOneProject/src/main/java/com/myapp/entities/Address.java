@@ -20,7 +20,7 @@ public class Address {
     private String state;
     private String zip;
 
-    @OneToOne
+    @OneToOne(mappedBy = "address")
     @JsonIgnore
     private User user;
 
