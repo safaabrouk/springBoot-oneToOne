@@ -1,5 +1,6 @@
 package com.myapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +19,9 @@ public class Address {
     private String city;
     private String state;
     private String zip;
+
     @OneToOne
+    @JsonIgnore
     private User user;
 
 }

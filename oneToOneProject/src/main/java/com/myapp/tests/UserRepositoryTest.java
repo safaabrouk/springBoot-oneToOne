@@ -60,67 +60,19 @@ public class UserRepositoryTest implements CommandLineRunner {
         System.out.println("User 2 : "+user2);
         User savedUser2 = userRepository.save(user2);
         // Update user_id in address table :
-        //address2.setUser(savedUser2);
-        //addressRepository.save(address2);
-
-
-        // Add new users :
-        System.out.println("------------------------- Save(User/Address): ---------------------");
-        //System.out.println("Saved user 1 : "+ savedUser1);
-        System.out.println("Saved user 2 : "+ userRepository.findById(1));
-
-
-        // Get All users :
-        /*System.out.println("------------------------- GetAll(Users/Addresses): ----------------");
-        List<User> users = userRepository.findAll();
-        int index = 1;
-        for (User user : users) {
-            System.out.println("User N°"+index+" : "+ user);
-            index++;
-        }
-
-/*
-        // Update user :
-        System.out.println("------------------------- Update user1 : id_Address will be 3 -----");
-        Address address3 = new Address();
-        address3.setCity("Casablanca");
-        address3.setState("MA");
-        address3.setZip("20350");
-        address3.setStreet("address street 2");
-        addressRepository.save(address3);
-        address3.setId(3);
-        User user3 = new User();
-        user3.setId(1);
-        user3.setFirstName("mohamed up");
-        user3.setLastName("mohamed up");
-        user3.setEmail("mohamed_up@gmail.com");
-        user3.setPassword("***up***");
-        user3.setAddress(address3);
-        System.out.println("Update user with id=1 : "+ userRepository.save(user3));
-
-
-        System.out.println("------------------------- Update user2 : id_Address will be null --");
-        User user4 = new User();
-        user4.setId(2);
-        user4.setFirstName("Ali up");
-        user4.setLastName("Ali up");
-        user4.setEmail("ali_up@gmail.com");
-        user4.setPassword("***up***");
-        System.out.println("Update user with id=2 : "+ userRepository.save(user4));
-
+        address2.setUser(savedUser2);
+        addressRepository.save(address2);
 
         // Delete address
-        //System.out.println("------------------------- Update user2 : id_Address will be null --");
-
+        //... userRepository.deleteById(1); // Affected user : Ok
+        //... addressRepository.deleteById(1); // Affected address : KO
         System.out.println("------------------------- Delete user1 : --------------------------");
-        addressRepository.deleteById(1); // No affected address : Ok
-        // addressRepository.deleteById(3); // Affected address : KO
-        //userRepository.deleteById(1);
-        userRepository.delete(user3);
-        addressRepository.deleteById(3);
+        // Update idUser in Address with null
+        address1.setUser(null);
+        addressRepository.save(address1);
+        userRepository.delete(user1);
+        addressRepository.deleteById(1);
         System.out.println("Delete user with id=1 : "+userRepository.findById(1));
-        */
-
 
 
         // With cascade
