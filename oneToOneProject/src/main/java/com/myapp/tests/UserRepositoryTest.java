@@ -21,7 +21,7 @@ public class UserRepositoryTest implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        /*
+        // /*
         // Without cascade
         System.out.println("------------------------- User1/Address1: -------------------------");
         Address address1 = new Address();
@@ -38,7 +38,10 @@ public class UserRepositoryTest implements CommandLineRunner {
         address1.setId(1);
         user1.setAddress(address1);
         System.out.println("User 1 : "+user1);
-
+        User savedUser1 = userRepository.save(user1);
+        // Update user_id in address table :
+        address1.setUser(savedUser1);
+        addressRepository.save(address1);
 
         System.out.println("------------------------- User2/Address2: -------------------------");
         Address address2 = new Address();
@@ -55,16 +58,20 @@ public class UserRepositoryTest implements CommandLineRunner {
         address2.setId(2);
         user2.setAddress(address2);
         System.out.println("User 2 : "+user2);
+        User savedUser2 = userRepository.save(user2);
+        // Update user_id in address table :
+        //address2.setUser(savedUser2);
+        //addressRepository.save(address2);
 
 
         // Add new users :
         System.out.println("------------------------- Save(User/Address): ---------------------");
-        System.out.println("Saved user 1 : "+ userRepository.save(user1));
-        System.out.println("Saved user 2 : "+ userRepository.save(user2));
+        //System.out.println("Saved user 1 : "+ savedUser1);
+        System.out.println("Saved user 2 : "+ userRepository.findById(1));
 
 
         // Get All users :
-        System.out.println("------------------------- GetAll(Users/Addresses): ----------------");
+        /*System.out.println("------------------------- GetAll(Users/Addresses): ----------------");
         List<User> users = userRepository.findAll();
         int index = 1;
         for (User user : users) {
@@ -72,7 +79,7 @@ public class UserRepositoryTest implements CommandLineRunner {
             index++;
         }
 
-
+/*
         // Update user :
         System.out.println("------------------------- Update user1 : id_Address will be 3 -----");
         Address address3 = new Address();
@@ -117,7 +124,7 @@ public class UserRepositoryTest implements CommandLineRunner {
 
 
         // With cascade
-
+        /*
         System.out.println("------------------------- User1/Address1: -------------------------");
         Address address1 = new Address();
         address1.setCity("San Francisco");
@@ -213,6 +220,6 @@ public class UserRepositoryTest implements CommandLineRunner {
         System.out.println("------------------------- Delete user1/Address3 : -----------------");
         userRepository.deleteById(1);
         System.out.println("Delete user with id=1 : "+userRepository.findById(1));
-
+        */
     }
 }
